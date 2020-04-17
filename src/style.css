@@ -1,7 +1,10 @@
 body {
-  background-color: #2d3b48;
+  background-color: #6195c5;
   padding: 5px;
   margin: 0;
+}
+.wrap-all {
+  margin-bottom: 80px;
 }
 .title {
   text-align: center;
@@ -22,7 +25,7 @@ ul.header li {
 ul.header {
   border-radius: 5px;
   text-align: center;
-  background-color: #733e37;
+  background-color: #ca7469;
   padding: 0;
   margin-bottom: 0;
 }
@@ -48,7 +51,11 @@ ul.header li a {
 .boxWhite {
   padding-top: 20px;
 }
+.boxWhite .col-4 {
+  padding: 0 5px;
+}
 .wrapTitle {
+  color: #31689a;
   border-radius: 5px;
   padding: 10px;
   background: white;
@@ -62,7 +69,7 @@ ul.header li a {
 .bgCircle {
   margin-bottom: 15px;
   border-radius: 5px;
-  background-color: #733e37;
+  background-color: #ca7469;
   color: white;
   font-size: 14px;
   transition: 0.3s;
@@ -106,11 +113,18 @@ ul.header li a {
   font-size: 14px !important;
   font-weight: bold;
 }
-
+.tips img {
+  width: 100%;
+}
+.tips p {
+  font-size: 10px;
+}
 .footer {
   bottom: 0;
+  left: 0;
+  width: 100%;
   position: fixed;
-  background: #723e38;
-  padding: 20px 10px 5px 10px;
+  background: #ca7469;
+  padding: 10px 10px 5px 10px;
   color: white;
 }

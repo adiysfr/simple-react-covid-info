@@ -32,19 +32,19 @@ class Home extends Component {
         console.log(data);
         const positive = (
           <div classname='content-fill'>
-            <span className='title-content'>Positive:</span> <br />{' '}
+            <span className='title-content'>Positive</span> <br />{' '}
             <p className='count-content'> {data.cases}</p>
           </div>
         );
         const deaths = (
           <div classname='content-fill'>
-            <span className='title-content'>Meninggal:</span> <br />{' '}
+            <span className='title-content'>Meninggal</span> <br />{' '}
             <p className='count-content'> {data.deaths}</p>
           </div>
         );
         const recovered = (
           <div classname='content-fill'>
-            <span className='title-content'>Sembuh:</span> <br />{' '}
+            <span className='title-content'>Sembuh</span> <br />{' '}
             <p className='count-content'> {data.recovered}</p>
           </div>
         );
@@ -67,31 +67,31 @@ class Home extends Component {
         console.log(data);
         const positiveIndonesia = (
           <div classname='content-fill'>
-            <span className='title-content'>Positive:</span> <br />{' '}
+            <span className='title-content'>Positive</span> <br />{' '}
             <p className='count-content'> {data.cases}</p>
           </div>
         );
         const deathsIndonesia = (
           <div classname='content-fill'>
-            <span className='title-content'>Meninggal:</span> <br />{' '}
+            <span className='title-content'>Meninggal</span> <br />{' '}
             <p className='count-content'> {data.deaths}</p>
           </div>
         );
         const recoveredIndonesia = (
           <div classname='content-fill'>
-            <span className='title-content'>Sembuh:</span> <br />{' '}
+            <span className='title-content'>Sembuh</span> <br />{' '}
             <p className='count-content'> {data.recovered}</p>
           </div>
         );
         const casesNowIndonesia = (
           <div classname='content-fill'>
-            <span className='title-content'>Positive Hari Ini:</span> <br />{' '}
+            <span className='title-content'>Positive Hari Ini</span> <br />{' '}
             <p className='count-content'> {data.casesPerOneMillion}</p>
           </div>
         );
         const deathsNowIndonesia = (
           <div classname='content-fill'>
-            <span className='title-content'>Meninggal Hari Ini:</span> <br />{' '}
+            <span className='title-content'>Meninggal Hari Ini</span> <br />{' '}
             <p className='count-content'> {data.deathsPerOneMillion}</p>
           </div>
         );
