@@ -1,6 +1,6 @@
 body {
   background-color: #2d3b48;
-  padding: 20px;
+  padding: 5px;
   margin: 0;
 }
 .title {
@@ -24,13 +24,14 @@ ul.header {
   text-align: center;
   background-color: #733e37;
   padding: 0;
+  margin-bottom: 0;
 }
 ul.header li a {
   font-size: 12px;
   color: #fff;
   font-weight: bold;
   text-decoration: none;
-  padding: 20px;
+  padding: 0 30px;
   display: inline-block;
 }
 .content {
@@ -45,6 +46,7 @@ ul.header li a {
 }
 
 .boxWhite {
+  padding-top: 20px;
 }
 .wrapTitle {
   border-radius: 5px;
@@ -53,20 +55,26 @@ ul.header li a {
 }
 .wrapContent {
   background: white;
-  margin-top: 15px;
+  margin-top: 2px;
   border-radius: 5px;
-  padding: 10px;
+  padding: 10px 0;
 }
 .bgCircle {
+  margin-bottom: 15px;
   border-radius: 5px;
   background-color: #733e37;
   color: white;
   font-size: 14px;
   transition: 0.3s;
-  padding: 10px;
+  padding: 5px 0;
+}
+@media screen and (max-width: 767px) {
+  .bgCircle {
+    font-size: 12px;
+  }
 }
 .bgCircle:hover {
-  transform: scale(1.2);
+  transform: scale(1.02);
 }
 .circle {
   width: 15px;
@@ -92,4 +100,15 @@ ul.header li a {
 .imgNav {
   width: 10px;
   filter: invert(100%);
+}
+
+.count-content {
+  font-size: 14px !important;
+  font-weight: bold;
+}
+
+.footer {
+  background: #723e38;
+  padding: 20px 10px 5px 10px;
+  color: white;
 }

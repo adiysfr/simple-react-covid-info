@@ -31,6 +31,9 @@ class Main extends Component {
             <Route exact path='/' component={Home} />
             <Route exact path='/about' component={About} />
           </div>
+          <div className='footer'>
+            <p>Adi Yusuf Ramadhan | 2020</p>
+          </div>
         </div>
       </HashRouter>
     );

@@ -12,9 +12,14 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      positive: '',
-      deaths: '',
-      recovered: '',
+      positive: 0,
+      deaths: 0,
+      recovered: 0,
+      positiveIndonesia: 0,
+      deathsIndonesia: 0,
+      recoveredIndonesia: 0,
+      casesNowIndonesia: 0,
+      deathsNowIndonesia: 0,
       isLoading: true
     };
   }
@@ -26,24 +31,21 @@ class Home extends Component {
         const data = res.data;
         console.log(data);
         const positive = (
-          <div>
-            <p>
-              <span className=''>Positive:</span> <br /> {data.cases}
-            </p>
+          <div classname='content-fill'>
+            <span className='title-content'>Positive:</span> <br />{' '}
+            <p className='count-content'> {data.cases}</p>
           </div>
         );
         const deaths = (
-          <div>
-            <p>
-              <span className=''>Meninggal:</span> <br /> {data.deaths}
-            </p>
+          <div classname='content-fill'>
+            <span className='title-content'>Meninggal:</span> <br />{' '}
+            <p className='count-content'> {data.deaths}</p>
           </div>
         );
         const recovered = (
-          <div>
-            <p>
-              <span className=''>Sembuh:</span> <br /> {data.recovered}
-            </p>
+          <div classname='content-fill'>
+            <span className='title-content'>Sembuh:</span> <br />{' '}
+            <p className='count-content'> {data.recovered}</p>
           </div>
         );
 
@@ -57,8 +59,58 @@ class Home extends Component {
         console.log(error);
       });
   }
+  getIndonesiaData() {
+    axios
+      .get(`v2/countries/indonesia`, {})
+      .then(res => {
+        const data = res.data;
+        console.log(data);
+        const positiveIndonesia = (
+          <div classname='content-fill'>
+            <span className='title-content'>Positive:</span> <br />{' '}
+            <p className='count-content'> {data.cases}</p>
+          </div>
+        );
+        const deathsIndonesia = (
+          <div classname='content-fill'>
+            <span className='title-content'>Meninggal:</span> <br />{' '}
+            <p className='count-content'> {data.deaths}</p>
+          </div>
+        );
+        const recoveredIndonesia = (
+          <div classname='content-fill'>
+            <span className='title-content'>Sembuh:</span> <br />{' '}
+            <p className='count-content'> {data.recovered}</p>
+          </div>
+        );
+        const casesNowIndonesia = (
+          <div classname='content-fill'>
+            <span className='title-content'>Positive Hari Ini:</span> <br />{' '}
+            <p className='count-content'> {data.casesPerOneMillion}</p>
+          </div>
+        );
+        const deathsNowIndonesia = (
+          <div classname='content-fill'>
+            <span className='title-content'>Meninggal Hari Ini:</span> <br />{' '}
+            <p className='count-content'> {data.deathsPerOneMillion}</p>
+          </div>
+        );
+
+        this.setState({
+          positiveIndonesia,
+          deathsIndonesia,
+          recoveredIndonesia,
+          casesNowIndonesia,
+          deathsNowIndonesia
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
   componentDidMount() {
     this.getAllData();
+    this.getIndonesiaData();
     setTimeout(
       function() {
         this.setState({ isLoading: false });
@@ -71,41 +123,114 @@ class Home extends Component {
     return this.state.isLoading ? (
       <Spinner type='grow' color='secondary' />
     ) : (
-      <div className='boxWhite'>
-        <div className='wrapTitle'>
-          <h5>Data Di Seluruh Dunia</h5>
+      <>
+        <div className='boxWhite'>
+          <div className='wrapTitle'>
+            <h5>Data Di Seluruh Dunia</h5>
+          </div>
+          <div className='wrapContent'>
+            <Container>
+              <Row>
+                <Col xs='4'>
+                  <div className='bgCircle'>
+                    <center>
+                      <img
+                        className='circle'
+                        src={positiveIcon}
+                        alt='default'
+                      />
+                    </center>
+                    <div className='ctr'>{this.state.positive}</div>
+                  </div>
+                </Col>
+                <Col xs='4'>
+                  <div className='bgCircle'>
+                    <center>
+                      <img
+                        className='circle'
+                        src={recoveryIcon}
+                        alt='default'
+                      />
+                    </center>
+                    <div className='ctr'>{this.state.recovered}</div>
+                  </div>
+                </Col>
+                <Col xs='4'>
+                  <div className='bgCircle'>
+                    <center>
+                      <img className='circle' src={deathIcon} alt='default' />
+                    </center>
+                    <div className='ctr'>{this.state.deaths}</div>
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+          </div>
         </div>
-        <div className='wrapContent'>
-          <Container>
-            <Row>
-              <Col xs='4'>
-                <div className='bgCircle'>
-                  <center>
-                    <img className='circle' src={positiveIcon} alt='default' />
-                  </center>
-                  <div className='ctr'>{this.state.positive}</div>
-                </div>
-              </Col>
-              <Col xs='4'>
-                <div className='bgCircle'>
-                  <center>
-                    <img className='circle' src={recoveryIcon} alt='default' />
-                  </center>
-                  <div className='ctr'>{this.state.recovered}</div>
-                </div>
-              </Col>
-              <Col xs='4'>
-                <div className='bgCircle'>
-                  <center>
-                    <img className='circle' src={deathIcon} alt='default' />
-                  </center>
-                  <div className='ctr'>{this.state.deaths}</div>
-                </div>
-              </Col>
-            </Row>
-          </Container>
+        <div className='boxWhite'>
+          <div className='wrapTitle'>
+            <h5>Data Di Indonesia</h5>
+          </div>
+          <div className='wrapContent'>
+            <Container>
+              <Row>
+                <Col xs='4'>
+                  <div className='bgCircle'>
+                    <center>
+                      <img
+                        className='circle'
+                        src={positiveIcon}
+                        alt='default'
+                      />
+                    </center>
+                    <div className='ctr'>{this.state.positiveIndonesia}</div>
+                  </div>
+                </Col>
+                <Col xs='4'>
+                  <div className='bgCircle'>
+                    <center>
+                      <img
+                        className='circle'
+                        src={recoveryIcon}
+                        alt='default'
+                      />
+                    </center>
+                    <div className='ctr'>{this.state.recoveredIndonesia}</div>
+                  </div>
+                </Col>
+                <Col xs='4'>
+                  <div className='bgCircle'>
+                    <center>
+                      <img className='circle' src={deathIcon} alt='default' />
+                    </center>
+                    <div className='ctr'>{this.state.deathsIndonesia}</div>
+                  </div>
+                </Col>
+                <Col xs='4'>
+                  <div className='bgCircle'>
+                    <center>
+                      <img
+                        className='circle'
+                        src={positiveIcon}
+                        alt='default'
+                      />
+                    </center>
+                    <div className='ctr'>{this.state.casesNowIndonesia}</div>
+                  </div>
+                </Col>
+                <Col xs='4'>
+                  <div className='bgCircle'>
+                    <center>
+                      <img className='circle' src={deathIcon} alt='default' />
+                    </center>
+                    <div className='ctr'>{this.state.deathsNowIndonesia}</div>
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }
