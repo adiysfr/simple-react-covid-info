@@ -108,6 +108,8 @@ ul.header li a {
 }
 
 .footer {
+  bottom: 0;
+  position: fixed;
   background: #723e38;
   padding: 20px 10px 5px 10px;
   color: white;
