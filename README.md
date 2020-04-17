@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Simple Project Covid-19 Info
+
+this project build by react create applications
 
 ## Available Scripts
 
