@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, NavLink, HashRouter } from 'react-router-dom';
 import Home from './Home';
 import LogoCov from './covid-19.jpg';
-import Australia from './Australia';
 import About from './About';
 import homeIcon from './images/home.png';
 import aboutIcon from './images/aboutus.png';
@@ -22,9 +21,6 @@ class Main extends Component {
               </NavLink>
             </li>
             <li>
-              <NavLink to='/australia'>Australia</NavLink>
-            </li>
-            <li>
               <NavLink to='/about'>
                 <img className='imgNav' src={aboutIcon} alt='default' />
                 <p>About</p>
@@ -33,7 +29,6 @@ class Main extends Component {
           </ul>
           <div className='content'>
             <Route exact path='/' component={Home} />
-            <Route exact path='/australia' component={Australia} />
             <Route exact path='/about' component={About} />
           </div>
         </div>
