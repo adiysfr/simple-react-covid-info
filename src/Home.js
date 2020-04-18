@@ -23,7 +23,17 @@ class Home extends Component {
       isLoading: true
     };
   }
-
+  // getcountries() {
+  //   axios
+  //     .get(`v2/countries`, {})
+  //     .then(res => {
+  //       const data = res.data;
+  //       console.log(data);
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // }
   getAllData() {
     axios
       .get(`v2/all`, {})
@@ -86,13 +96,13 @@ class Home extends Component {
         const casesNowIndonesia = (
           <div classname='content-fill'>
             <span className='title-content'>Positive Hari Ini</span> <br />{' '}
-            <p className='count-content'> {data.casesPerOneMillion}</p>
+            <p className='count-content'> {data.todayCases}</p>
           </div>
         );
         const deathsNowIndonesia = (
           <div classname='content-fill'>
             <span className='title-content'>Meninggal Hari Ini</span> <br />{' '}
-            <p className='count-content'> {data.deathsPerOneMillion}</p>
+            <p className='count-content'> {data.todayDeaths}</p>
           </div>
         );
 
@@ -111,6 +121,7 @@ class Home extends Component {
   componentDidMount() {
     this.getAllData();
     this.getIndonesiaData();
+    // this.getcountries();
     setTimeout(
       function() {
         this.setState({ isLoading: false });
