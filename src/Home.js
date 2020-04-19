@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Spinner } from 'reactstrap';
+import { zoomIn } from 'react-animations';
+import Radium, { StyleRoot } from 'radium';
 
 import axios from './Axios';
 import positiveIcon from './images/positive.png';
@@ -10,6 +12,12 @@ import deathIcon from './images/death.png';
 import Helper from './helper/index';
 
 const helper = new Helper();
+const styles = {
+  zoomIn: {
+    animation: 'x 1s',
+    animationName: Radium.keyframes(zoomIn, 'zoomIn')
+  }
+};
 
 class Home extends Component {
   constructor(props) {
@@ -125,7 +133,6 @@ class Home extends Component {
   componentDidMount() {
     this.getAllData();
     this.getIndonesiaData();
-    // this.getcountries();
     setTimeout(
       function() {
         this.setState({ isLoading: false });
@@ -141,132 +148,136 @@ class Home extends Component {
           <Spinner color='secondary' />
         ) : (
           <>
-            <div className='boxWhite'>
-              <div className='wrapTitle'>
-                <h5>Data Di Seluruh Dunia</h5>
-              </div>
-              <div className='wrapContent'>
-                <Container>
-                  <Row>
-                    <Col xs='4'>
-                      <div className='bgCircle'>
-                        <center>
-                          <img
-                            className='circle'
-                            src={positiveIcon}
-                            alt='default'
-                          />
-                        </center>
-                        <div className='ctr'>{this.state.positive}</div>
-                      </div>
-                    </Col>
-                    <Col xs='4'>
-                      <div className='bgCircle'>
-                        <center>
-                          <img
-                            className='circle'
-                            src={recoveryIcon}
-                            alt='default'
-                          />
-                        </center>
-                        <div className='ctr'>{this.state.recovered}</div>
-                      </div>
-                    </Col>
-                    <Col xs='4'>
-                      <div className='bgCircle'>
-                        <center>
-                          <img
-                            className='circle'
-                            src={deathIcon}
-                            alt='default'
-                          />
-                        </center>
-                        <div className='ctr'>{this.state.deaths}</div>
-                      </div>
-                    </Col>
-                  </Row>
-                </Container>
-              </div>
-            </div>
-            <div className='boxWhite'>
-              <div className='wrapTitle'>
-                <h5>Data Di Indonesia</h5>
-              </div>
-              <div className='wrapContent'>
-                <Container>
-                  <Row>
-                    <Col xs='4'>
-                      <div className='bgCircle'>
-                        <center>
-                          <img
-                            className='circle'
-                            src={positiveIcon}
-                            alt='default'
-                          />
-                        </center>
-                        <div className='ctr'>
-                          {this.state.positiveIndonesia}
+            <StyleRoot>
+              <div className='boxWhite'>
+                <div className='wrapTitle'>
+                  <h6>Data Di Seluruh Dunia</h6>
+                </div>
+                <div className='wrapContent'>
+                  <Container>
+                    <Row>
+                      <Col xs='4'>
+                        <div className='bgCircle' style={styles.zoomIn}>
+                          <center>
+                            <img
+                              className='circle'
+                              src={positiveIcon}
+                              alt='default'
+                            />
+                          </center>
+                          <div className='ctr'>{this.state.positive}</div>
                         </div>
-                      </div>
-                    </Col>
-                    <Col xs='4'>
-                      <div className='bgCircle'>
-                        <center>
-                          <img
-                            className='circle'
-                            src={recoveryIcon}
-                            alt='default'
-                          />
-                        </center>
-                        <div className='ctr'>
-                          {this.state.recoveredIndonesia}
+                      </Col>
+                      <Col xs='4'>
+                        <div className='bgCircle' style={styles.zoomIn}>
+                          <center>
+                            <img
+                              className='circle'
+                              src={recoveryIcon}
+                              alt='default'
+                            />
+                          </center>
+                          <div className='ctr'>{this.state.recovered}</div>
                         </div>
-                      </div>
-                    </Col>
-                    <Col xs='4'>
-                      <div className='bgCircle'>
-                        <center>
-                          <img
-                            className='circle'
-                            src={deathIcon}
-                            alt='default'
-                          />
-                        </center>
-                        <div className='ctr'>{this.state.deathsIndonesia}</div>
-                      </div>
-                    </Col>
-                    <Col xs='4'>
-                      <div className='bgCircle'>
-                        <center>
-                          <img
-                            className='circle'
-                            src={positiveIcon}
-                            alt='default'
-                          />
-                        </center>
-                        <div className='ctr'>
-                          {this.state.casesNowIndonesia}
+                      </Col>
+                      <Col xs='4'>
+                        <div className='bgCircle' style={styles.zoomIn}>
+                          <center>
+                            <img
+                              className='circle'
+                              src={deathIcon}
+                              alt='default'
+                            />
+                          </center>
+                          <div className='ctr'>{this.state.deaths}</div>
                         </div>
-                      </div>
-                    </Col>
-                    <Col xs='4'>
-                      <div className='bgCircle'>
-                        <center>
-                          <img
-                            className='circle'
-                            src={deathIcon}
-                            alt='default'
-                          />
-                        </center>
-                        <div className='ctr'>
-                          {this.state.deathsNowIndonesia}
-                        </div>
-                      </div>
-                    </Col>
-                  </Row>
-                </Container>
+                      </Col>
+                    </Row>
+                  </Container>
+                </div>
               </div>
-            </div>
+              <div className='boxWhite'>
+                <div className='wrapTitle'>
+                  <h6>Data Di Indonesia</h6>
+                </div>
+                <div className='wrapContent'>
+                  <Container>
+                    <Row>
+                      <Col xs='4'>
+                        <div className='bgCircle' style={styles.zoomIn}>
+                          <center>
+                            <img
+                              className='circle'
+                              src={positiveIcon}
+                              alt='default'
+                            />
+                          </center>
+                          <div className='ctr'>
+                            {this.state.positiveIndonesia}
+                          </div>
+                        </div>
+                      </Col>
+                      <Col xs='4'>
+                        <div className='bgCircle' style={styles.zoomIn}>
+                          <center>
+                            <img
+                              className='circle'
+                              src={recoveryIcon}
+                              alt='default'
+                            />
+                          </center>
+                          <div className='ctr'>
+                            {this.state.recoveredIndonesia}
+                          </div>
+                        </div>
+                      </Col>
+                      <Col xs='4'>
+                        <div className='bgCircle' style={styles.zoomIn}>
+                          <center>
+                            <img
+                              className='circle'
+                              src={deathIcon}
+                              alt='default'
+                            />
+                          </center>
+                          <div className='ctr'>
+                            {this.state.deathsIndonesia}
+                          </div>
+                        </div>
+                      </Col>
+                      <Col xs='4'>
+                        <div className='bgCircle' style={styles.zoomIn}>
+                          <center>
+                            <img
+                              className='circle'
+                              src={positiveIcon}
+                              alt='default'
+                            />
+                          </center>
+                          <div className='ctr'>
+                            {this.state.casesNowIndonesia}
+                          </div>
+                        </div>
+                      </Col>
+                      <Col xs='4'>
+                        <div className='bgCircle' style={styles.zoomIn}>
+                          <center>
+                            <img
+                              className='circle'
+                              src={deathIcon}
+                              alt='default'
+                            />
+                          </center>
+                          <div className='ctr'>
+                            {this.state.deathsNowIndonesia}
+                          </div>
+                        </div>
+                      </Col>
+                    </Row>
+                  </Container>
+                </div>
+              </div>
+            </StyleRoot>
           </>
         )}
       </>

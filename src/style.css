@@ -1,5 +1,6 @@
 body {
-  background-color: #6195c5;
+  /* background-color: #6195c5; */
+  background-image: linear-gradient(to right, #6195c5, #28456f);
   padding: 5px;
   margin: 0;
 }
@@ -25,7 +26,8 @@ ul.header li {
 ul.header {
   border-radius: 5px;
   text-align: center;
-  background-color: #ca7469;
+  /* background-color: #ca7469; */
+  background-image: linear-gradient(#cb7468, #6f3939);
   padding: 0;
   margin-bottom: 0;
 }
@@ -67,13 +69,17 @@ ul.header li a {
   padding: 10px 0;
 }
 .bgCircle {
+  border: 1px solid #ebebeb;
   margin-bottom: 15px;
   border-radius: 5px;
-  background-color: #ca7469;
-  color: white;
+  background-color: #ffffff;
+  color: #316799;
   font-size: 14px;
   transition: 0.3s;
   padding: 5px 0;
+  -webkit-box-shadow: 9px 11px 17px -8px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 9px 11px 17px -8px rgba(0, 0, 0, 0.6);
+  box-shadow: 9px 11px 17px -8px rgba(0, 0, 0, 0.6);
 }
 @media screen and (max-width: 767px) {
   .bgCircle {
@@ -85,7 +91,8 @@ ul.header li a {
 }
 .circle {
   width: 15px;
-  filter: invert(100%);
+  filter: hue-rotate(90deg);
+  /* filter: invert(100%); */
 }
 .ctr {
   padding-top: 10px;
@@ -96,6 +103,9 @@ ul.header li a {
   margin: auto;
   display: block;
   width: 100px;
+  -webkit-box-shadow: 9px 11px 17px -8px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 9px 11px 17px -8px rgba(0, 0, 0, 0.6);
+  box-shadow: 9px 11px 17px -8px rgba(0, 0, 0, 0.6);
 }
 
 .spinner-border {
@@ -103,6 +113,8 @@ ul.header li a {
   width: 4rem;
   height: 4rem;
   margin: auto;
+  top: 100px;
+  position: relative;
 }
 .imgNav {
   width: 10px;
@@ -124,7 +136,10 @@ ul.header li a {
   left: 0;
   width: 100%;
   position: fixed;
-  background: #ca7469;
+  /* background: #ca7469; */
+  background-image: linear-gradient(#cb7468, #6f3939);
   padding: 10px 10px 5px 10px;
   color: white;
+  font-size: 12px;
+  height: 35px;
 }
