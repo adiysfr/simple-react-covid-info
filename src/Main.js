@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Route, NavLink, HashRouter } from 'react-router-dom';
 import Home from './Home';
-import LogoCov from '../src/images/covid-19.jpg';
 import About from './About';
 import Tips from './Tips';
 import homeIcon from './images/home.png';
 import aboutIcon from './images/aboutus.png';
+import LogoCov from '../src/images/covid-19.jpg';
 
 class Main extends Component {
   render() {

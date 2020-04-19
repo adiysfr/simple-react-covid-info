@@ -1,0 +1,8 @@
+{
+    "name": "@component/helper",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "Adi Yusuf Ramadhan <adiyusuframadhan@gmail.com>",
+    "license": "MIT"
+}
+  

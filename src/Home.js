@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Spinner } from 'reactstrap';
+import axios from './Axios';
+
 import positiveIcon from './images/positive.png';
 import recoveryIcon from './images/recovery.png';
 import deathIcon from './images/death.png';
+import Helper from './helper/index';
 
-import axios from './Axios';
+const helper = new Helper();
 
 class Home extends Component {
   constructor(props) {
@@ -23,17 +26,6 @@ class Home extends Component {
       isLoading: true
     };
   }
-  // getcountries() {
-  //   axios
-  //     .get(`v2/countries`, {})
-  //     .then(res => {
-  //       const data = res.data;
-  //       console.log(data);
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // }
   getAllData() {
     axios
       .get(`v2/all`, {})
@@ -43,19 +35,19 @@ class Home extends Component {
         const positive = (
           <div classname='content-fill'>
             <span className='title-content'>Positive</span> <br />{' '}
-            <p className='count-content'> {data.cases}</p>
+            <p className='count-content'> {helper.checkFormat(data.cases)}</p>
           </div>
         );
         const deaths = (
           <div classname='content-fill'>
             <span className='title-content'>Meninggal</span> <br />{' '}
-            <p className='count-content'> {data.deaths}</p>
+            <p className='count-content'> {helper.checkFormat(data.deaths)}</p>
           </div>
         );
         const recovered = (
           <div classname='content-fill'>
             <span className='title-content'>Sembuh</span> <br />{' '}
-            <p className='count-content'> {data.recovered}</p>
+            <p className='count-content'> {helper.checkFormat(data.recovered)}</p>
           </div>
         );
 
@@ -78,31 +70,31 @@ class Home extends Component {
         const positiveIndonesia = (
           <div classname='content-fill'>
             <span className='title-content'>Positive</span> <br />{' '}
-            <p className='count-content'> {data.cases}</p>
+            <p className='count-content'> {helper.checkFormat(data.cases)}</p>
           </div>
         );
         const deathsIndonesia = (
           <div classname='content-fill'>
             <span className='title-content'>Meninggal</span> <br />{' '}
-            <p className='count-content'> {data.deaths}</p>
+            <p className='count-content'> {helper.checkFormat(data.deaths)}</p>
           </div>
         );
         const recoveredIndonesia = (
           <div classname='content-fill'>
             <span className='title-content'>Sembuh</span> <br />{' '}
-            <p className='count-content'> {data.recovered}</p>
+            <p className='count-content'> {helper.checkFormat(data.recovered)}</p>
           </div>
         );
         const casesNowIndonesia = (
           <div classname='content-fill'>
             <span className='title-content'>Positive Hari Ini</span> <br />{' '}
-            <p className='count-content'> {data.todayCases}</p>
+            <p className='count-content'> {helper.checkFormat(data.todayCases)}</p>
           </div>
         );
         const deathsNowIndonesia = (
           <div classname='content-fill'>
             <span className='title-content'>Meninggal Hari Ini</span> <br />{' '}
-            <p className='count-content'> {data.todayDeaths}</p>
+            <p className='count-content'> {helper.checkFormat(data.todayDeaths)}</p>
           </div>
         );
 
@@ -126,13 +118,14 @@ class Home extends Component {
       function() {
         this.setState({ isLoading: false });
       }.bind(this),
-      500
+      1000
     );
   }
 
   render() {
     return this.state.isLoading ? (
-      <Spinner type='grow' color='secondary' />
+      // <Spinner type='grow' color='secondary' />
+      <Spinner color='secondary' />
     ) : (
       <>
         <div className='boxWhite'>
