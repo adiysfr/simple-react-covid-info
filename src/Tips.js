@@ -16,25 +16,21 @@ class About extends React.Component {
           <Container>
             <Carousel>
               <div>
-                <img src='https://asset.kompas.com/crops/BM0hsv8rbG4DJYhVrJSU19_i4Ho=/4x36:1200x833/750x500/data/photo/2020/03/31/5e83084449494.jpg' />
+                <img src='https://asset.kompas.com/crops/BM0hsv8rbG4DJYhVrJSU19_i4Ho=/4x36:1200x833/750x500/data/photo/2020/03/31/5e83084449494.jpg' alt="asset1"/>
                 <p className='legend'>sumber: kompas.com</p>
               </div>
               <div>
-                <img src='https://pbs.twimg.com/media/EPHMPT9UUAA3IxK.jpg' />
+                <img src='https://pbs.twimg.com/media/EPHMPT9UUAA3IxK.jpg' alt="asset2"/>
                 <p className='legend'>sumber: pmi</p>
               </div>
               <div>
-                <img src={TipsIcon} />
+                <img src={TipsIcon} alt="asset3"/>
                 <p className='legend'>
                   sumber: Kementrian Kesehatan Republik Indonesia
                 </p>
               </div>
             </Carousel>
           </Container>
-          {/* <div className='tips'>
-              <img src={TipsIcon} alt='tips' />
-              <p>Sumber: Kementrian Kesehatan Republik Indonesia</p>
-            </div> */}
         </div>
       </div>
     );
