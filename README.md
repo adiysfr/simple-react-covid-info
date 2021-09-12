@@ -3,4 +3,4 @@
 this project build by react create applications
 
 # Demo
-update-simple-covid19
+https://simple-covid19-update.herokuapp.com/
